@@ -1,22 +1,15 @@
-const poolBuilderSelectors = require('../../../../../../selectors/poolBuilderSelectors')
-const poolBuilderData = require('../../../../../../fixtures/poolBuilderData')
+const poolBuilderSelectors = require('../selectors/poolBuilderSelectors')
+const poolBuilderData = require('../fixtures/poolBuilderData')
 const { test, expect } = require('@playwright/test');
 
-// test.use({ storageState: 'auth-session.json' });
+test.use({ storageState: 'auth-session.json' });
 
-// test.describe('ComTrak - Patient Pool Builder Test Cases', () => {
-//     test.beforeEach(async ({ page }) => {
-//         await page.goto('https://comtrak.qa.dmclinical.com/homepage');
-//     });
+test.describe('ComTrak - Patient Pool Builder Test Cases', () => {
+    test.beforeEach(async ({ page }) => {
+        await page.goto('https://comtrak.qa.dmclinical.com/homepage');
+    });
 
-    // test('TC-01 - Create and Publish the Patient Pool', async ({ page }) => {
-        class publishPatientPool {
-            CreateAndPublishPatientPool(){
-
-            
-                test.beforeEach(async ({ page }) => {
-                    await page.goto('https://comtrak.qa.dmclinical.com/homepage');
-                
+    test('TC-01 - Create and Publish the Patient Pool', async ({ page }) => {
         
         expect(page.url()).toBe('https://comtrak.qa.dmclinical.com/homepage');
         await page.click(poolBuilderSelectors.DRP_Leads);
@@ -50,9 +43,6 @@ const { test, expect } = require('@playwright/test');
         await page.waitForSelector(`//td /div[text()="${poolBuilderData.Pool_Name}"]`, { state: 'visible' });
         // await page.click(poolBuilderSelectors.EYE_ReviewPool)
 
-    // });
-// });
 });
-    }
-    }
-    module.exports = publishPatientPool;
+    })
+

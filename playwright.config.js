@@ -41,13 +41,13 @@ module.exports = defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
-      name: 'Auth',
-      testMatch: 'auth.spec.js',
+      name: 'Google Authentication and Save Session',
+      testMatch: 'googleAuthentication.spec.js',
     },
     {
-      name: 'Reuse Session',
-      testMatch: 'reuseSession.spec.js',
-      dependencies: ['Auth'],
+      name: 'Main Tests',
+      testMatch: 'main.spec.js',
+      dependencies: ['Google Authentication and Save Session'],
     },
     // {
     //   name: 'chromium',
