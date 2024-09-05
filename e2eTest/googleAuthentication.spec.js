@@ -1,6 +1,5 @@
 const loginSelectors = require('../selectors/loginSelectors.js')
 const loginData = require('../fixtures/loginData.js')
-// const publishPatientPool = require('../modules/leads/patientPoolBuilder/published/publishedPools/publishPatientPool.spec.js')
 const { test, expect } = require('@playwright/test');
 const fs = require('fs');
 
@@ -27,9 +26,4 @@ test('Google Authentication and Save Session', async ({ page }) => {
     // test.beforeEach(async ({ page }) => {
     //     await page.goto('https://comtrak.qa.dmclinical.com/homepage');
     // });
-});
-test.describe('ComTrak - Patient Pool Builder Test Cases', () => {
-    test.beforeEach(async ({ page }) => {
-        await page.goto('https://comtrak.qa.dmclinical.com/homepage');
-    });
 });
