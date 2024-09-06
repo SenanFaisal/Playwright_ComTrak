@@ -1,5 +1,10 @@
 // @ts-check
 const { defineConfig, devices } = require('@playwright/test');
+const config = {
+  reporter: [['html', { outputFolder: 'playwright-report' }]],
+};
+
+module.exports = config;
 
 /**
  * Read environment variables from file.
