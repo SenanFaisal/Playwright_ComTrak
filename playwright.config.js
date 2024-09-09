@@ -1,7 +1,7 @@
 // @ts-check
-const { defineConfig, devices } = require('@playwright/test');
+const { defineConfig, devices } = require("@playwright/test");
 const config = {
-  reporter: [['html', { outputFolder: 'playwright-report' }]],
+  reporter: [["html", { outputFolder: "playwright-report" }]],
 };
 
 module.exports = config;
@@ -16,8 +16,7 @@ module.exports = config;
  * @see https://playwright.dev/docs/test-configuration
  */
 module.exports = defineConfig({
-  
-  testDir: './e2eTest',
+  testDir: "./e2eTest",
   /* Run tests in files in parallel */
   fullyParallel: true,
   timeout: 1000000,
@@ -29,29 +28,29 @@ module.exports = defineConfig({
   // workers: process.env.CI ? 1 : undefined,
   workers: 1,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
+  reporter: "html",
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
     // baseURL: 'http://127.0.0.1:3000',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on-first-retry',
-    headless: true,  // Set to false to run in headed mode
-        launchOptions: {
-            args: ['--disable-blink-features=AutomationControlled']
-        }
+    trace: "on-first-retry",
+    headless: true, // Set to false to run in headed mode
+    launchOptions: {
+      args: ["--disable-blink-features=AutomationControlled"],
+    },
   },
 
   /* Configure projects for major browsers */
   projects: [
     {
-      name: 'Google Authentication and Save Session',
-      testMatch: 'googleAuthentication.spec.js',
+      name: "Google Authentication and Save Session",
+      testMatch: "googleAuthentication.spec.js",
     },
     {
-      name: 'Main Tests',
-      testMatch: 'main.spec.js',
+      name: "Main Tests",
+      testMatch: "main.spec.js",
       // dependencies: ['Google Authentication and Save Session'],
     },
     // {
@@ -97,4 +96,3 @@ module.exports = defineConfig({
   //   reuseExistingServer: !process.env.CI,
   // },
 });
-
