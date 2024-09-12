@@ -1,33 +1,10 @@
 const { test } = require("@playwright/test");
-const { execSync } = require("child_process");
-const fs = require("fs");
 
 test.use({ storageState: "auth-session.json" });
 
-test.describe("ComTrak - Patient Pool Builder Test Cases", () => {
+test.describe("ComTrak - Patient Pool Builder", () => {
   test.beforeEach(async ({ page }) => {
-    const sessionFile = "auth-session.json";
-
-    if (fs.existsSync(sessionFile)) {
-      await page
-        .context()
-        .addCookies(JSON.parse(fs.readFileSync(sessionFile, "utf8")).cookies);
-    }
-
     await page.goto("https://comtrak.qa.dmclinical.com/homepage");
-
-    if (page.url().includes("https://comtrak.qa.dmclinical.com/login")) {
-      execSync("npx playwright test googleAuthentication.spec.js", {
-        stdio: "inherit",
-      });
-
-      if (fs.existsSync(sessionFile)) {
-        const storageState = JSON.parse(fs.readFileSync(sessionFile, "utf8"));
-        await page.context().clearCookies();
-        await page.context().addCookies(storageState.cookies);
-        await page.reload();
-      }
-    }
   });
   require("../modules/leads/patientPoolBuilder/published/publishedPools/publishPatientPool.js");
   // require("../modules/leads/patientPoolBuilder/published/publishedPools/activatePatientPool.js");

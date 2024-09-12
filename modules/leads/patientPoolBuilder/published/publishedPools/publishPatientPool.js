@@ -5,7 +5,9 @@ const { test, expect } = require("@playwright/test");
 test.use({ storageState: "auth-session.json" });
 
 const publishPatientPool =
-  test("TC-01 - Create and Publish the Patient Pool", async ({ page }) => {
+  test("TC - Create, Review, Save, Publish, and Delete Patient Pool Builder", async ({
+    page,
+  }) => {
     expect(page.url()).toBe("https://comtrak.qa.dmclinical.com/homepage");
     await page.click(poolBuilderSelectors.DRP_Leads);
     await page.click(poolBuilderSelectors.DRP_PatientPoolBuilder);
@@ -37,11 +39,57 @@ const publishPatientPool =
     await page.click(poolBuilderSelectors.DRP_IntendedStudy);
     await page.click(poolBuilderData.IntendedStudy);
 
+    await page.click(poolBuilderSelectors.BTN_Review);
+
+    await page.click(poolBuilderSelectors.BTN_Cross);
+
+    await page.click(poolBuilderSelectors.BTN_SaveDraft);
+
+    await page.click(poolBuilderSelectors.BTN_Drafts);
+
+    await page.waitForSelector(
+      `//td//div[text()="${poolBuilderData.Pool_Name}"]`,
+      { state: "visible" }
+    );
+
+    await page.click(
+      `//td//div[text()="${poolBuilderData.Pool_Name}"]//parent::td//following-sibling::td//button[@title="Edit"]`
+    );
+
+    await page.click(poolBuilderSelectors.BTN_Continue1);
+
+    await page.click(poolBuilderSelectors.BTN_Continue2);
+
     await page.click(poolBuilderSelectors.BTN_CreatePool);
 
     await page.waitForSelector(
-      `//td /div[text()="${poolBuilderData.Pool_Name}"]`,
+      `//td//div[text()="${poolBuilderData.Pool_Name}"]`,
       { state: "visible" }
+    );
+
+    await page.click(
+      `//td//div[text()="${poolBuilderData.Pool_Name}"]/ancestor::tr//button[@role="switch"]`
+    );
+
+    await page.click('//button[text()=" Yes "]');
+
+    await page.click(
+      `//td//div[text()="${poolBuilderData.Pool_Name}"]/ancestor::tr//button[@role="switch"]`
+    );
+
+    await page.click('//button[text()=" Yes "]');
+
+    await page.click(poolBuilderSelectors.BTN_Continue1);
+
+    await page.click(poolBuilderSelectors.BTN_Continue2);
+
+    await page.click(poolBuilderSelectors.BTN_ExitDiscard);
+
+    await page.click(poolBuilderSelectors.BTN_Delete);
+
+    await page.waitForSelector(
+      `//td//div[text()="${poolBuilderData.Pool_Name}"]`,
+      { state: "hidden" }
     );
   });
 
