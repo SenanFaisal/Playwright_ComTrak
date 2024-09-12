@@ -23,7 +23,5 @@ test("Google Authentication and Save Session", async ({ page }) => {
 
   const storageState = await page.context().storageState();
   fs.writeFileSync("auth-session.json", JSON.stringify(storageState));
-  // test.beforeEach(async ({ page }) => {
-  //     await page.goto('https://comtrak.qa.dmclinical.com/homepage');
-  // });
+
 });
