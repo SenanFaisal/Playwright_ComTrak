@@ -18,7 +18,7 @@ module.exports = config;
 module.exports = defineConfig({
   testDir: "./e2eTest",
   /* Run tests in files in parallel */
-  fullyParallel: true,
+  fullyParallel: false,
   timeout: 1000000,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
@@ -37,9 +37,11 @@ module.exports = defineConfig({
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: "on-first-retry",
     headless: true, // Set to false to run in headed mode
+    slowMo: 50,
     launchOptions: {
-      args: ["--disable-blink-features=AutomationControlled"],
+      args: ['--disable-features=IsolateOrigins,site-per-process','--disable-blink-features=AutomationControlled','--no-sandbox', '--disable-setuid-sandbox', '--disable-gpu', '--disable-dev-shm-usage'],
     },
+    viewport: { width: 1536, height: 864 }
   },
 
   /* Configure projects for major browsers */

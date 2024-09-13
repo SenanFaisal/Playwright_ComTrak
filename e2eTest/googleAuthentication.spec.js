@@ -7,14 +7,19 @@ test("Google Authentication and Save Session", async ({ page }) => {
   await page.goto("https://comtrak.qa.dmclinical.com/");
 
   const [googlePopup] = await Promise.all([
-    page.waitForEvent("popup"),
+    page.waitForEvent('popup', { timeout: 10000 }),
     page.click(loginSelectors.BTN_SignIn),
+    page.waitForTimeout(5000)
   ]);
 
   await googlePopup.fill(loginSelectors.TXT_Email, loginData.Email_Id);
+  await page.waitForTimeout(1000)
   await googlePopup.click(loginSelectors.BTN_Next);
+  await page.waitForTimeout(1000)
   await googlePopup.fill(loginSelectors.TXT_Password, loginData.Password_Id);
+  await page.waitForTimeout(1000)
   await googlePopup.click(loginSelectors.BTN_Next);
+  await page.waitForTimeout(1000)
 
   await googlePopup.waitForNavigation();
 

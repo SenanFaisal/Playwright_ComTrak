@@ -4,6 +4,6 @@ const poolBuilderData = {
   State_1: '//div[text()="New Jersey"]',
   State_2: '//div[text()="New York"]',
   Status_1: '//div[text()="Pre Booking"]',
-  IntendedStudy: '(//div[text()="Moderna 1273-p301"])[4]',
+  IntendedStudy: '(//div[text()="Moderna 1273-p301"])[3]',
 };
 module.exports = poolBuilderData;

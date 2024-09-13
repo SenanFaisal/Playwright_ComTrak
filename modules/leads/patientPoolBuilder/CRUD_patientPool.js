@@ -1,5 +1,5 @@
-const poolBuilderSelectors = require("../../../../../selectors/poolBuilderSelectors");
-const poolBuilderData = require("../../../../../fixtures/poolBuilderData");
+const poolBuilderSelectors = require("../../../selectors/poolBuilderSelectors");
+const poolBuilderData = require("../../../fixtures/poolBuilderData");
 const { test, expect } = require("@playwright/test");
 
 test.use({ storageState: "auth-session.json" });
@@ -9,6 +9,9 @@ const publishPatientPool =
     page,
   }) => {
     expect(page.url()).toBe("https://comtrak.qa.dmclinical.com/homepage");
+
+    // Create Patient Pool Builder
+
     await page.click(poolBuilderSelectors.DRP_Leads);
     await page.click(poolBuilderSelectors.DRP_PatientPoolBuilder);
     await page.click(poolBuilderSelectors.Create_New);
@@ -39,9 +42,13 @@ const publishPatientPool =
     await page.click(poolBuilderSelectors.DRP_IntendedStudy);
     await page.click(poolBuilderData.IntendedStudy);
 
+    // Review Patient Pool Builder Data
+
     await page.click(poolBuilderSelectors.BTN_Review);
 
     await page.click(poolBuilderSelectors.BTN_Cross);
+
+    // Save Patient Pool Builder
 
     await page.click(poolBuilderSelectors.BTN_SaveDraft);
 
@@ -51,6 +58,8 @@ const publishPatientPool =
       `//td//div[text()="${poolBuilderData.Pool_Name}"]`,
       { state: "visible" }
     );
+
+    // Publish Patient Pool Builder
 
     await page.click(
       `//td//div[text()="${poolBuilderData.Pool_Name}"]//parent::td//following-sibling::td//button[@title="Edit"]`
@@ -66,6 +75,8 @@ const publishPatientPool =
       `//td//div[text()="${poolBuilderData.Pool_Name}"]`,
       { state: "visible" }
     );
+
+    // Delete Patient Pool Bui
 
     await page.click(
       `//td//div[text()="${poolBuilderData.Pool_Name}"]/ancestor::tr//button[@role="switch"]`
