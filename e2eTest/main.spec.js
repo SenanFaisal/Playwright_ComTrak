@@ -11,4 +11,3 @@ test.describe("ComTrak - Patient Pool Builder", () => {
   require("../modules/leads/patientPoolBuilder/publishPatientPoolBuilder.js")
   require("../modules/leads/patientPoolBuilder/deletePatientPoolBuilder.js")
 });
-// require("../modules/leads/patientPoolBuilder/published/publishedPools/publishPatientPool.js");

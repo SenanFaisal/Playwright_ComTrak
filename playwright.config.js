@@ -53,7 +53,7 @@ module.exports = defineConfig({
     {
       name: "Main Tests",
       testMatch: "main.spec.js",
-      // dependencies: ['Google Authentication and Save Session'],
+      dependencies: ['Google Authentication and Save Session'],
     },
     // {
     //   name: 'chromium',
