@@ -1,5 +1,5 @@
 // @ts-check
-const { defineConfig, devices } = require("@playwright/test");
+const { defineConfig, devices, chromium } = require("@playwright/test");
 const config = {
   reporter: [["html", { outputFolder: "playwright-report" }]],
 };
@@ -38,6 +38,7 @@ module.exports = defineConfig({
     trace: "on-first-retry",
     headless: true, // Set to false to run in headed mode
     slowMo: 50,
+    browserName: 'chromium',
     launchOptions: {
       args: ['--disable-features=IsolateOrigins,site-per-process','--disable-blink-features=AutomationControlled','--no-sandbox', '--disable-setuid-sandbox', '--disable-gpu', '--disable-dev-shm-usage'],
     },
