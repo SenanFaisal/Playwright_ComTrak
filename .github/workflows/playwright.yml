@@ -17,10 +17,8 @@ jobs:
         run: npm ci
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
-      - name: Run Google Authentication test
-        run: npx playwright test e2eTest/googleAuthentication.spec.js
-      - name: Run Main test file
-        run: npx playwright test e2eTest/main.spec.js
+      - name: Run Playwright test
+        run: npx playwright test
       - name: Upload Test Report
         uses: actions/upload-artifact@v4
         if: always()
