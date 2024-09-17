@@ -17,8 +17,10 @@ jobs:
         run: npm ci
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
-      - name: Run Playwright test with trace
-        run: npx playwright test --trace on-first-retry --retries 2
+      - name: Run Google Authentication Test First
+        run: npx playwright test e2eTest/googleAuthentication.spec.js --browser=chromium
+      - name: Run Main Test file
+        run: npx playwright test e2eTest/main.spec.js --trace on-first-retry --browser=chromium
       # - name: Run Playwright test
       #   run: npx playwright test
       - name: Upload Test Report
