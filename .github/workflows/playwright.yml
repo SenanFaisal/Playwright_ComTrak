@@ -18,7 +18,7 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
       - name: Run Playwright test with trace
-        run: npx playwright test --trace on-first-retry --timeout 60000 --retries 2
+        run: npx playwright test --trace on-first-retry --retries 2
       # - name: Run Playwright test
       #   run: npx playwright test
       - name: Upload Test Report
