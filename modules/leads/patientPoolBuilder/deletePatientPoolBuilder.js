@@ -15,34 +15,34 @@ const reviewPatientPoolBuilder =
     await page.click(poolBuilderSelectors.BTN_Published);
 
     await page.waitForSelector(
-        `//td//div[text()="${poolBuilderData.Pool_Name}"]`,
-        { state: "visible" }
-      );
+      `//td//div[text()="${poolBuilderData.Pool_Name}"]`,
+      { state: "visible" }
+    );
 
     await page.click(
-        `//td//div[text()="${poolBuilderData.Pool_Name}"]/ancestor::tr//button[@role="switch"]`
-      );
-  
-      await page.click('//button[text()=" Yes "]');
-  
-      await page.click(
-        `//td//div[text()="${poolBuilderData.Pool_Name}"]/ancestor::tr//button[@role="switch"]`
-      );
-  
-      await page.click('//button[text()=" Yes "]');
-  
-      await page.click(poolBuilderSelectors.BTN_Continue1);
-  
-      await page.click(poolBuilderSelectors.BTN_Continue2);
-  
-      await page.click(poolBuilderSelectors.BTN_ExitDiscard);
-  
-      await page.click(poolBuilderSelectors.BTN_Delete);
-  
-      await page.waitForSelector(
-        `//td//div[text()="${poolBuilderData.Pool_Name}"]`,
-        { state: "hidden" }
-      );
+      `//td//div[text()="${poolBuilderData.Pool_Name}"]/ancestor::tr//button[@role="switch"]`
+    );
+
+    await page.click('//button[text()=" Yes "]');
+
+    await page.click(
+      `//td//div[text()="${poolBuilderData.Pool_Name}"]/ancestor::tr//button[@role="switch"]`
+    );
+
+    await page.click('//button[text()=" Yes "]');
+
+    await page.click(poolBuilderSelectors.BTN_Continue1);
+
+    await page.click(poolBuilderSelectors.BTN_Continue2);
+
+    await page.click(poolBuilderSelectors.BTN_ExitDiscard);
+
+    await page.click(poolBuilderSelectors.BTN_Delete);
+
+    await page.waitForSelector(
+      `//td//div[text()="${poolBuilderData.Pool_Name}"]`,
+      { state: "hidden" }
+    );
   });
 
 module.exports = reviewPatientPoolBuilder;

@@ -28,7 +28,8 @@ module.exports = defineConfig({
   // workers: process.env.CI ? 1 : undefined,
   workers: 1,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: "html",
+  // reporter: "html",
+  reporter: [["html", { open: "on-end" }]],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
@@ -38,11 +39,18 @@ module.exports = defineConfig({
     trace: "on-first-retry",
     headless: true, // Set to false to run in headed mode
     slowMo: 50,
-    browserName: 'chromium',
+    browserName: "chromium",
     launchOptions: {
-      args: ['--disable-features=IsolateOrigins,site-per-process','--disable-blink-features=AutomationControlled','--no-sandbox', '--disable-setuid-sandbox', '--disable-gpu', '--disable-dev-shm-usage'],
+      args: [
+        "--disable-features=IsolateOrigins,site-per-process",
+        "--disable-blink-features=AutomationControlled",
+        "--no-sandbox",
+        "--disable-setuid-sandbox",
+        "--disable-gpu",
+        "--disable-dev-shm-usage",
+      ],
     },
-    viewport: { width: 1536, height: 864 }
+    viewport: { width: 1536, height: 864 },
   },
 
   /* Configure projects for major browsers */

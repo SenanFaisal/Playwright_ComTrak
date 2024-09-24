@@ -8,21 +8,23 @@ test("Google Authentication and Save Session", async ({ page }) => {
   await page.goto("https://comtrak.qa.dmclinical.com/");
 
   const [googlePopup] = await Promise.all([
-    page.waitForEvent('popup', { timeout: 10000 }),
+    page.waitForEvent("popup", { timeout: 10000 }),
     page.click(loginSelectors.BTN_SignIn),
-    page.waitForTimeout(5000)
+    page.waitForTimeout(5000),
   ]);
-  
+
   await googlePopup.fill(loginSelectors.TXT_Email, loginData.Email_Id);
-  page.waitForTimeout(1000)
-  await googlePopup.press(loginSelectors.TXT_Email, 'Enter')
-  page.waitForTimeout(2000)
+  page.waitForTimeout(1000);
+  await googlePopup.press(loginSelectors.TXT_Email, "Enter");
+  page.waitForTimeout(2000);
   await googlePopup.fill(loginSelectors.TXT_Password, loginData.Password_Id);
-  page.waitForTimeout(1000)
-  await googlePopup.press(loginSelectors.TXT_Password, 'Enter')
-  page.waitForTimeout(2000)
-  
-  await page.waitForURL("https://comtrak.qa.dmclinical.com/homepage", { waitUntil: 'load'});
+  page.waitForTimeout(1000);
+  await googlePopup.press(loginSelectors.TXT_Password, "Enter");
+  page.waitForTimeout(2000);
+
+  await page.waitForURL("https://comtrak.qa.dmclinical.com/homepage", {
+    waitUntil: "load",
+  });
   expect(page.url()).toBe("https://comtrak.qa.dmclinical.com/homepage");
 
   const storageState = await page.context().storageState();
