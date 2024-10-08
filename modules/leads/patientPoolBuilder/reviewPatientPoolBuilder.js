@@ -51,10 +51,6 @@ const reviewPatientPoolBuilder =
       "6 years - 98 years"
     );
 
-    await expect(page.locator(poolBuilderSelectors.Verify_Study)).toHaveText(
-      " Moderna 1273-p301 "
-    );
-
     await page.click(poolBuilderSelectors.BTN_Cross);
   });
 

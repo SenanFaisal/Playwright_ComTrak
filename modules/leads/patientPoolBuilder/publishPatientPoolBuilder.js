@@ -27,7 +27,10 @@ const reviewPatientPoolBuilder =
 
     await page.click(poolBuilderSelectors.BTN_Continue2);
 
-    await page.click(poolBuilderSelectors.BTN_CreatePool);
+    await page.click(poolBuilderSelectors.DRP_IntendedStudy);
+    await page.click(poolBuilderData.IntendedStudy);
+
+    await page.click(BTN_CreatePool);
 
     await page.waitForSelector(
       `//td//div[text()="${poolBuilderData.Pool_Name}"]`,

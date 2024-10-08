@@ -20,13 +20,13 @@ const reviewPatientPoolBuilder =
     );
 
     await page.click(
-      `//td//div[text()="${poolBuilderData.Pool_Name}"]/ancestor::tr//button[@role="switch"]`
+      `//td//div[text()="${poolBuilderData.Pool_Name}"]//ancestor::tr//mat-slide-toggle[@id="mat-slide-toggle-1"]`
     );
 
     await page.click('//button[text()=" Yes "]');
 
     await page.click(
-      `//td//div[text()="${poolBuilderData.Pool_Name}"]/ancestor::tr//button[@role="switch"]`
+      `//td//div[text()="${poolBuilderData.Pool_Name}"]//ancestor::tr//mat-slide-toggle[@id="mat-slide-toggle-1"]`
     );
 
     await page.click('//button[text()=" Yes "]');
