@@ -56,7 +56,7 @@ jobs:
       run: npx playwright install --with-deps
 
     - name: Run Google Authentication Test First
-      run: npx playwright test e2eTest/googleAuthentication.spec.js --headless --project=chromium -- --disable-features=IsolateOrigins,site-per-process --disable-blink-features=AutomationControlled --no-sandbox --disable-setuid-sandbox --disable-gpu --disable-dev-shm-usage
+      run: npx playwright test e2eTest/googleAuthentication.spec.js --project=chromium -- --disable-features=IsolateOrigins,site-per-process --disable-blink-features=AutomationControlled --no-sandbox --disable-setuid-sandbox --disable-gpu --disable-dev-shm-usage
 
     - name: Run Main Test file
       run: npx playwright test e2eTest/main.spec.js --trace on-first-retry --project=chromium
