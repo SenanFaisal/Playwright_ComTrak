@@ -30,4 +30,3 @@ test("Google Authentication and Save Session", async ({ page }) => {
   const storageState = await page.context().storageState();
   fs.writeFileSync("auth-session.json", JSON.stringify(storageState));
 });
-//this is just comment
