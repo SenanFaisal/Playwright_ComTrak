@@ -29,7 +29,7 @@ const poolBuilderSelectors = {
   BTN_SaveDraft: '//button[text()=" Save as Draft "]',
   BTN_Drafts: '//a[@id="subMenuItem1"]',
   BTN_Published: '//a[@id="subMenuItem2"]',
-  BTN_CreatePool: '//button[text()=" Create Pool "]',
+  BTN_CreatePool: '/html/body/app-my-app/app-layout/div/div[2]/createpool/div/div/div/div/div[2]/div/div/div/mat-horizontal-stepper/div[2]/div[3]/form/div[4]/div[2]/button[4]',
   EYE_ReviewPool:
     "tr:nth-child(1) > td:nth-child(8) > div > button:nth-child(1)",
   BTN_ExitDiscard: '//button[text()=" Exit & Discard "]',
