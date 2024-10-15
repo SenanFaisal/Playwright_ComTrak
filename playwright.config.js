@@ -64,10 +64,10 @@ module.exports = defineConfig({
       testMatch: "main.spec.js",
       // dependencies: ['Google Authentication and Save Session'],
     },
-    // {
-    //   name: 'chromium',
-    //   use: { ...devices['Desktop Chrome'] },
-    // },
+    {
+      name: 'chromium',
+      use: { ...devices['Desktop Chrome'] },
+    },
 
     // {
     //   name: 'firefox',
