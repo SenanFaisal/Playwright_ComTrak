@@ -5,7 +5,7 @@ const { test, expect } = require("@playwright/test");
 test.use({ storageState: "auth-session.json" });
 
 const reviewPatientPoolBuilder =
-  test("TC-04 - Delete Patient Pool Builder", async ({ page }) => {
+  test("TC-05 - Delete Patient Pool Builder", async ({ page }) => {
     expect(page.url()).toBe("https://comtrak.qa.dmclinical.com/homepage");
 
     // Delete the Patient Pool Builder
@@ -20,13 +20,13 @@ const reviewPatientPoolBuilder =
     );
 
     await page.click(
-      `//td//div[text()="${poolBuilderData.Pool_Name}"]//ancestor::tr//mat-slide-toggle[@id="mat-slide-toggle-1"]`
+      `//td//div[text()="${poolBuilderData.Pool_Name}"]//ancestor::tr//span[@class="mdc-switch__handle"]`
     );
 
     await page.click('//button[text()=" Yes "]');
 
     await page.click(
-      `//td//div[text()="${poolBuilderData.Pool_Name}"]//ancestor::tr//mat-slide-toggle[@id="mat-slide-toggle-1"]`
+      `//td//div[text()="${poolBuilderData.Pool_Name}"]//ancestor::tr//span[@class="mdc-switch__handle"]`
     );
 
     await page.click('//button[text()=" Yes "]');

@@ -5,7 +5,7 @@ const { test, expect } = require("@playwright/test");
 test.use({ storageState: "auth-session.json" });
 
 const reviewPatientPoolBuilder =
-  test("TC-02 - Review Patient Pool Builder", async ({ page }) => {
+  test("TC-03 - Review Patient Pool Builder", async ({ page }) => {
     expect(page.url()).toBe("https://comtrak.qa.dmclinical.com/homepage");
 
     // Review Patient Pool Builder in Drafts
